@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'jackpot';
+  src: url('./assets/font/ChakraPetch-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'jackpotBold';
+  src: url('./assets/font/ChakraPetch-Bold.ttf');
+}
+
+.mybold {
+  font-family: 'jackpotBold';
+}
+
+body {
+  background-image: url('./assets/hero.svg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'jackpot';
+}
+
+.potential-img {
+  background-image: url('./assets/bet_area.svg');
+  background-size: contain;
+  background-position: center;
+}
+.jackpot {
+  background-image: url('./assets/jackpot.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.bet_area {
+  background-image: url('./assets/bet_area.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.bg_graphic {
+  background-image: url('./assets/bg_graphic.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.timer {
+  background-image: url('./assets/timer.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+
+.custom-selector {
+  color: #fff;
+}
+
+
+.custom-selector .selector-header.open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.custom-selector .selector-header {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.custom-selector .options,
+.custom-selector .selector-header {
+  background: linear-gradient(180deg, #323232, #000), linear-gradient(180deg, #464645, #868585 45.31%, #070707 51.56%, #3e3f3f);
+  border: 1.5px solid;
+  border-radius: 10px;
+  border-image-source: linear-gradient(180deg, #464645, #868585 45.31%, #070707 51.56%, #3e3f3f);
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+}
+
+
+.scroll-container {
+  width: 300px;
+  /* Set your desired width */
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.scroll-content {
+  width: fit-content;
+}
+
+.body-container{
+  background-image: url('./assets/body-bg.png');
+  background-color: black; 
+}
