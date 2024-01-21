@@ -3,6 +3,7 @@ import { parseEther, parseUnits, zeroAddress } from "viem"
 import { contractABI, contractAddress } from "../global"
 import toast from "react-hot-toast"
 import { tokenAddress } from "../global"
+import { useState } from "react"
 
 const useBet = ({
     poolId = "0",
@@ -14,12 +15,14 @@ const useBet = ({
         address
     })
 
+    const [isSpinLoading, setIsSpinLoading] = useState(false);
+
     const { config: approveConfig, error: approvePrepareError, isError: isApprovePrepareError } = usePrepareContractWrite({
         address: tokenAddress,
         abi: erc20ABI,
         functionName: 'approve',
         args: [contractAddress, parseUnits(amount, 18)],
-        enabled: (isConnected)
+        enabled: (isConnected),
     })
 
     const { data: approveData, error: approveError, isError: isApproveError, write: approveWrite, isLoading: isApproveWriteLoading } = useContractWrite(approveConfig)
@@ -27,7 +30,7 @@ const useBet = ({
         hash: approveData?.hash,
         onSuccess(txData) {
             const writeBet = async () => {
-                await refetch()
+                console.log(txData)
                 write?.()
             }
 
@@ -35,6 +38,7 @@ const useBet = ({
         },
         onError(error) {
             toast.error(`Error: ${(error)?.message}`)
+            setIsSpinLoading(false)
         }
     });
 
@@ -56,34 +60,39 @@ const useBet = ({
         onSuccess(txData) {
             console.log('hash', data?.hash)
             toast.success("Bet Success!")
+            setIsSpinLoading(false)
         },
         onError(error) {
             console.log("🚀 ~ file: useBet.jsx:32 ~ onError ~ error:", error)
             toast.error("Bet failed!")
+            setIsSpinLoading(false)
         }
     })
 
     const makeBet = () => {
 
-        console.log("balance.data?.formatted", balance);
-        if (balance.isSuccess && balance.data?.formatted * 1 < amount * 1) {
+        console.log("balance.data?.formatted", balance?.data);
+        if (balance.isSuccess && balance.data?.formatted * 1 < 0.1 ) {
             toast.error('You have not enough funds.')
             return;
         }
-        if (isApprovePrepareError || isApproveError) {
-            console.log("🚀 ~ file: useBet.jsx:39 ~ makeBet ~ isPrepareError:", approvePrepareError?.message, approveError?.message)
+        if (isApprovePrepareError) {
+            console.log("🚀 ~ file: useBet.jsx:39 ~ makeBet ~ isPrepareError:", approvePrepareError?.message)
             toast.error("Approve failed!")
             return;
         }
         console.log(isConnected, address, side, amount * 1, poolId, poolId?.length > 60, approveWrite, isApprovePrepareError, isApproveError)
         approveWrite?.()
+        setIsSpinLoading(true)
     }
     return {
         data,
         isPrepareError,
         prepareError,
         isWriteLoading,
+        isApproveLoading,
         isLoading,
+        isSpinLoading,
         refetch,
         makeBet
     }

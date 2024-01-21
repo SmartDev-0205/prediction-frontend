@@ -15,33 +15,56 @@ export const SocketProvider = ({ children }) => {
     const [profile, setProfile] = useState({})
     const [nickName, setNickName] = useState("")
     const [avatarUrl, setAvatarUrl] = useState('')
+    const [btcList, setBtcList] = useState([])
+    const [startPrice, setStartPrice] = useState('')
+    const [endPrice, setEndPrice] = useState('')
 
     useEffect(() => {
         if (!initialized) {
             setInitialized(true)
             socket.on("CURRENT_TIME", function (data) {
-                // console.log(new Date(), data?.STATE, data?.poolId)
                 setStatus(data?.STATE)
                 setPoolId(data?.poolId)
                 setTimer(data?.secondsRemaining || 0)
                 setBtcPrice(data.btcPrice)
+                if (data.STATE === STATUS.POOL_CLOSE && data?.secondsRemaining == 0) {
+                    setStartPrice(data?.startPrice);
+                }
+                if (data.STATE === STATUS.DISTRIBUTION_BEGIN && data?.secondsRemaining == 0) {
+                    setEndPrice(data?.endPrice);
+                    if (data?.endPrice > data?.startPrice) {
+                        setWinnerSide(true);
+                    } else {
+                        setWinnerSide(false);
+                    }
+                }
+                if (data.STATE === STATUS.DISTRIBUTION_BEGIN) {
+                    setBtcList(prevBtcList => [...prevBtcList, data.btcPrice]);
+                } else {
+                    setBtcList([]);
+                }
+
             })
         }
-    }, [])
+    }, [socket])
+
     useEffect(() => {
-        // console.log("Status", status)
-    }, [status])
+        // console.log("---------btcList---------", btcList);
+    }, [btcList]);
 
     const store = {
         timer: timer,
         status: status,
         winnerSide: winnerSide,
         poolId: poolId,
+        startPrice: startPrice,
+        endPrice: endPrice,
         btcPrice: btcPrice,
+        btcList: btcList,
         signedIn: [signedIn, setSignedIn],
         profile: [profile, setProfile],
-        nickName:[nickName, setNickName],
-        avatarUrl:[avatarUrl, setAvatarUrl]
+        nickName: [nickName, setNickName],
+        avatarUrl: [avatarUrl, setAvatarUrl]
     }
 
     return (

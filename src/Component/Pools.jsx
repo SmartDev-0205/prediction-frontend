@@ -12,7 +12,7 @@ export const LeftPool = () => {
           <div className=" flex h-full w-full text-white absolute z-[10]  flex-col xl:flex-row items-center justify-evenly  ">
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(121, 251, 203)",
                   fontFamily: "Chakra Petch",
@@ -35,7 +35,7 @@ export const LeftPool = () => {
             </div>
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(121, 251, 203)",
                   fontFamily: "Chakra Petch",
@@ -126,11 +126,11 @@ export const LeftPool = () => {
         </div>
       </div>
       <div className="block xl:hidden">
-        <div className="flex flex-col relative w-[130px]">
+        <div className="flex flex-col relative w-[100px]">
           <div className=" flex h-full w-full text-white absolute z-[10] flex-col xl:flex-row p-[10px] justify-evenly  ">
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(121, 251, 203)",
 
@@ -153,7 +153,7 @@ export const LeftPool = () => {
             </div>
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(121, 251, 203)",
 
@@ -254,7 +254,7 @@ export const RightPool = () => {
           <div className=" flex h-full w-full text-white absolute z-[10] flex-col xl:flex-row items-center justify-evenly ">
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(121, 251, 203)",
                   fontFamily: "Chakra Petch",
@@ -277,7 +277,7 @@ export const RightPool = () => {
             </div>
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(121, 251, 203)",
                   fontFamily: "Chakra Petch",
@@ -366,11 +366,11 @@ export const RightPool = () => {
         </div>
       </div>
       <div className="block xl:hidden">
-        <div className="flex flex-col relative w-[130px]">
+        <div className="flex flex-col relative w-[100px]">
           <div className=" flex h-full w-full text-white absolute z-[10] flex-col xl:flex-row p-[10px] justify-evenly ">
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(232, 54, 152)",
                 }}
@@ -392,7 +392,7 @@ export const RightPool = () => {
             </div>
             <div className="flex flex-col">
               <p
-                className="textDetail md:text-md text-xs"
+                className="textDetail md:text-md text-[10px] md:text-[12px]"
                 style={{
                   color: "rgb(232, 54, 152)",
                 }}

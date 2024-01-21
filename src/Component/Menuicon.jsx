@@ -26,16 +26,6 @@ const Menuicon = () => {
         </div>
       )}
       {clip && <Copylink />}
-      {/* {modal && <Modal setShowModal={setShowModal} />} */}
-      <div
-        className="w-12"
-        onClick={() => {
-          setShow((prev) => !prev);
-          setClip(false);
-        }}
-      >
-        <img alt="menu" src={menu} className="cursor-pointer w-full" />
-      </div>
     </div>
   );
 };

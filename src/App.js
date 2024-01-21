@@ -5,10 +5,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react'
 import { createConfig, configureChains, mainnet, WagmiConfig } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
-import { polygon} from "viem/chains";
+import { polygon } from "viem/chains";
 import {
   w3mConnectors,
 } from "@web3modal/ethereum";
+import { lazy } from "react";
+const LandingLayout = lazy(() => import("./layouts"));
+
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [polygon],
@@ -38,9 +41,11 @@ const config = createConfig({
 const App = () => {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <BrowserRouter basename="/prediction">
-        <Routes>
-          <Route path="/" element={<Hero />} />
+      <BrowserRouter basename="prediction">
+        <Routes >
+          <Route path="/" element={<LandingLayout />}>
+            <Route path="/" element={<Hero />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </WagmiConfig>
