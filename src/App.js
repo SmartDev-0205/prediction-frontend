@@ -41,7 +41,7 @@ const config = createConfig({
 const App = () => {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <BrowserRouter basename="prediction">
+      <BrowserRouter>
         <Routes >
           <Route path="/" element={<LandingLayout />}>
             <Route path="/" element={<Hero />} />
