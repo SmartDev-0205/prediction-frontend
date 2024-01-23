@@ -15,24 +15,24 @@ import logoImg from "../assets/logo.png";
 
 
 const NAV_LINKS = [
-  {
-    id: 1,
-    label: "Prediction",
-    iconName: "cryptocurrency:lend",
-    to: "/",
-  },
-  {
-    id: 2,
-    label: "Staking",
-    iconName: "material-symbols:dashboard",
-    to: "/staking",
-  },
-  {
-    id: 4,
-    label: "Lending",
-    iconName: "material-symbols:dashboard",
-    to: "/lending",
-  },
+  // {
+  //   id: 1,
+  //   label: "Prediction",
+  //   iconName: "cryptocurrency:lend",
+  //   to: "/",
+  // },
+  // {
+  //   id: 2,
+  //   label: "Staking",
+  //   iconName: "material-symbols:dashboard",
+  //   to: "/staking",
+  // },
+  // {
+  //   id: 4,
+  //   label: "Lending",
+  //   iconName: "material-symbols:dashboard",
+  //   to: "/lending",
+  // },
 
 ];
 
