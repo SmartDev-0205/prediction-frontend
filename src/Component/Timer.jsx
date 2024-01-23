@@ -4,6 +4,7 @@ import _402 from "../assets/2_402.png";
 import timerd from "../assets/timer.svg";
 import { STATUS } from "../global";
 import Menuicon from "./Menuicon";
+import { LeftPool, RightPool } from "./Pools";
 const Timer = ({
     timer = 43,
     status = STATUS.POOL_OPEN,
@@ -17,12 +18,13 @@ const Timer = ({
                     <Menuicon />
                 </div>
                 <div className="w-[240px] h-auto md:w-[300px] z-20">
-                    <img alt="loading" src={_402} className="w-full" />
+                    {/* <img alt="loading" src={_402} className="w-full" /> */}
+                    <LeftPool />
                 </div>
             </div>
-            <div className={`relative ${((isTimer && status !== STATUS.POOL_OPEN) || status === STATUS.POOL_OPEN) ? 'flex' : 'hidden xl:flex'} items-center justify-center`}>
-                <img alt="loading" src={timerd} className={`${isTimer && status !== STATUS.POOL_OPEN ? 'w-40 -mt-4' : 'lg:w-64 w-48 lg:-mt-24 -mt-14 -z-10'}`} />
-                <div className="flex flex-col items-center absolute top-[5px] ">
+            <div className={`relative ${((isTimer && status !== STATUS.POOL_OPEN) || status != STATUS.DISTRIBUTION_END) ? 'flex' : 'hidden xl:flex'} items-center justify-center sm:mt-[100px]`}>
+                <img alt="loading" src={timerd} className={`${isTimer && status !== STATUS.POOL_OPEN ? 'w-40 -mt-4' : 'lg:w-64 w-48 lg:-mt-24 mt-4 -z-10'}`} />
+                <div className={`flex flex-col items-center absolute ${status !== STATUS.DISTRIBUTION_END?'top-[75px]':'top-[27px]'} sm:top-[-17px]`}>
                     <span className="text-[#C94A49] text-7xl xl:text-8xl font-bold">
                         {timer}
                     </span>

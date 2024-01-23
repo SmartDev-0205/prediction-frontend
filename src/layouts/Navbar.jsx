@@ -16,6 +16,12 @@ import logoImg from "../assets/logo.png";
 
 const NAV_LINKS = [
   {
+    id: 1,
+    label: "Prediction",
+    iconName: "cryptocurrency:lend",
+    to: "/",
+  },
+  {
     id: 2,
     label: "Staking",
     iconName: "material-symbols:dashboard",
@@ -27,12 +33,7 @@ const NAV_LINKS = [
     iconName: "material-symbols:dashboard",
     to: "/lending",
   },
-  {
-    id: 1,
-    label: "Prediction",
-    iconName: "cryptocurrency:lend",
-    to: "/prediction",
-  }
+
 ];
 
 const chainId = process.env.REACT_APP_CHAIN_ID || 137;
@@ -51,7 +52,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
 
-  const [visibleDrawer, setVisibleDrawer] = useState  (false);
+  const [visibleDrawer, setVisibleDrawer] = useState(false);
 
   const closeDrawer = () => {
     setVisibleDrawer(false);
@@ -74,7 +75,7 @@ export default function Navbar() {
             {NAV_LINKS.map((linkItem) => (
               <a href={linkItem.to}>
                 <TextButton
-                  className={`flex items-center gap-2 ${pathname === linkItem.to ? "text-gray-100" : "text-gray-500"
+                  className={`flex items-center gap-2 ${linkItem.id === 1 ? "text-gray-100" : "text-gray-500"
                     }`}
                 >
                   {/* <Icon icon={linkItem.iconName} className="text-lg" /> */}
@@ -155,7 +156,7 @@ export default function Navbar() {
               <ListItem
                 key={linkItem.id}
                 onClick={() => navigateToPage(linkItem.to)}
-                className={`gap-4 ${pathname === linkItem.to ? "text-gray-100" : "text-gray-500"
+                className={`gap-4 ${linkItem.id === 1 ? "text-gray-100" : "text-gray-500"
                   }`}
               >
                 {/* <Icon icon={linkItem.iconName} className="text-lg" /> */}

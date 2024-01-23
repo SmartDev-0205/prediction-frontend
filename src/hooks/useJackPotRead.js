@@ -1,13 +1,14 @@
-import { useContractRead } from "wagmi";
-import { contractABI, contractAddress } from "../global";
+import { erc20ABI, useContractRead } from "wagmi";
+import { contractABI, contractAddress, tokenAddress } from "../global";
 import { useEffect, useState } from "react";
-import { formatEther } from "viem";
 
 const useJackPotRead = ({
     poolId = '0'
 }) => {
     const [upBet, setUpBet] = useState({})
     const [downBet, setDownBet] = useState({})
+    const [poolBalance, setPoolBalance] = useState({})
+
     const { data, isSuccess } = useContractRead({
         address: contractAddress,
         abi: contractABI,
@@ -16,8 +17,24 @@ const useJackPotRead = ({
         watch: true
     })
 
+
+    const  contractBalance = useContractRead({
+        address: tokenAddress,
+        abi: erc20ABI,
+        functionName: 'balanceOf',
+        args: [contractAddress],
+        watch: true
+    })
+
+    useEffect(() => {
+        if (contractBalance.isSuccess) {
+            setPoolBalance(contractBalance.data)
+        }
+    }, [contractBalance])
+
     useEffect(() => {
         if (isSuccess) {
+            console.log("------------data balance----------------", data);
             setUpBet(data?.upBet)
             setDownBet(data?.downBet)
         }
@@ -26,7 +43,8 @@ const useJackPotRead = ({
     return {
         upBet,
         downBet,
-        isSuccess
+        isSuccess,
+        poolBalance
     }
 }
 

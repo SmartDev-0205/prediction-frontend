@@ -1,18 +1,26 @@
+import { useContext } from "react";
 import detail_up from "../assets/detail_up.svg";
 import bnb from "../assets/logo.png";
 import detail_down from "../assets/detail_down.svg";
 import belt from "../assets/belt.svg";
 import useJackPotRead from "../hooks/useJackPotRead";
+import { SocketContext } from "../hooks/SocketProvider";
+import { formatEther } from "viem";
+
 
 export const LeftPool = () => {
+  const {
+    poolId,
+  } = useContext(SocketContext)
+  const { poolBalance } = useJackPotRead({ poolId })
   return (
     <div>
       <div className="hidden xl:block">
         <div className="flex flex-col relative ">
           <div className=" flex h-full w-full text-white absolute z-[10]  flex-col xl:flex-row items-center justify-evenly  ">
-            <div className="flex flex-col">
+            <div className="flex gap-4 items-center">
               <p
-                className="textDetail md:text-md text-[10px] md:text-[12px]"
+                className="textDetail md:text-md text-[15px] md:text-[20px]"
                 style={{
                   color: "rgb(121, 251, 203)",
                   fontFamily: "Chakra Petch",
@@ -29,30 +37,7 @@ export const LeftPool = () => {
                   className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
                 />
                 <p className="textCoinDetail" style={{ color: "rgb(121, 251, 203)" }}>
-                  0
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <p
-                className="textDetail md:text-md text-[10px] md:text-[12px]"
-                style={{
-                  color: "rgb(121, 251, 203)",
-                  fontFamily: "Chakra Petch",
-                }}
-              >
-                Potential Return
-              </p>
-              <div className="flex flex-row gap-x-2 items-center">
-                <img alt="loading"
-
-                  width="22"
-                  height="22"
-                  src={bnb}
-                  className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
-                />
-                <p className="textCoinDetail" style={{ color: "rgb(121, 251, 203)" }}>
-                  0
+                  {formatEther(poolBalance)}
                 </p>
               </div>
             </div>
@@ -126,11 +111,11 @@ export const LeftPool = () => {
         </div>
       </div>
       <div className="block xl:hidden">
-        <div className="flex flex-col relative w-[100px]">
+        <div className="flex flex-col relative">
           <div className=" flex h-full w-full text-white absolute z-[10] flex-col xl:flex-row p-[10px] justify-evenly  ">
-            <div className="flex flex-col">
+            <div className="flex justify-center items-center gap-4">
               <p
-                className="textDetail md:text-md text-[10px] md:text-[12px]"
+                className="textDetail md:text-md text-[15px]"
                 style={{
                   color: "rgb(121, 251, 203)",
 
@@ -138,7 +123,7 @@ export const LeftPool = () => {
               >
                 ▲ Pool Treasury{" "}
               </p>
-              <div className="flex flex-row gap-x-2 items-center pb-3 xl:p-0">
+              <div className="flex flex-row gap-x-2 justify-center items-center">
                 <img alt="loading"
 
                   width="22"
@@ -147,30 +132,7 @@ export const LeftPool = () => {
                   className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
                 />
                 <p className="textCoinDetail" style={{ color: "rgb(121, 251, 203)" }}>
-                  0
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <p
-                className="textDetail md:text-md text-[10px] md:text-[12px]"
-                style={{
-                  color: "rgb(121, 251, 203)",
-
-                }}
-              >
-                Potential Return
-              </p>
-              <div className="flex flex-row gap-x-2 items-center">
-                <img alt="loading"
-
-                  width="22"
-                  height="22"
-                  src={bnb}
-                  className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
-                />
-                <p className="textCoinDetail" style={{ color: "rgb(121, 251, 203)" }}>
-                  0
+                  {formatEther(poolBalance)}
                 </p>
               </div>
             </div>
@@ -247,14 +209,18 @@ export const LeftPool = () => {
   );
 };
 export const RightPool = () => {
+  const {
+    poolId,
+  } = useContext(SocketContext)
+  const { poolBalance } = useJackPotRead({ poolId })
   return (
     <div>
       <div className="hidden xl:block">
         <div className="flex flex-col relative ">
           <div className=" flex h-full w-full text-white absolute z-[10] flex-col xl:flex-row items-center justify-evenly ">
-            <div className="flex flex-col">
+            <div className="flex gap-4">
               <p
-                className="textDetail md:text-md text-[10px] md:text-[12px]"
+                className="textDetail md:text-md text-[15px] md:text-[20px]"
                 style={{
                   color: "rgb(121, 251, 203)",
                   fontFamily: "Chakra Petch",
@@ -271,30 +237,7 @@ export const RightPool = () => {
                   className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
                 />
                 <p className="textCoinDetail" style={{ color: "rgb(121, 251, 203)" }}>
-                  0
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <p
-                className="textDetail md:text-md text-[10px] md:text-[12px]"
-                style={{
-                  color: "rgb(121, 251, 203)",
-                  fontFamily: "Chakra Petch",
-                }}
-              >
-                Potential Return
-              </p>
-              <div className="flex flex-row gap-x-2 items-center">
-                <img alt="loading"
-
-                  width="22"
-                  height="22"
-                  src={bnb}
-                  className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
-                />
-                <p className="textCoinDetail" style={{ color: "rgb(121, 251, 203)" }}>
-                  0
+                  {formatEther(poolBalance)}
                 </p>
               </div>
             </div>
@@ -377,7 +320,7 @@ export const RightPool = () => {
               >
                 ▲ Pool Treasury{" "}
               </p>
-              <div className="flex flex-row gap-x-2 items-center pb-3 xl:p-0">
+              <div className="flex flex-row justify-center  gap-x-2 items-center pb-3 xl:p-0">
                 <img alt="loading"
 
                   width="22"
@@ -386,29 +329,7 @@ export const RightPool = () => {
                   className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
                 />
                 <p className="textCoinDetail" style={{ color: "rgb(232, 54, 152)" }}>
-                  0
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <p
-                className="textDetail md:text-md text-[10px] md:text-[12px]"
-                style={{
-                  color: "rgb(232, 54, 152)",
-                }}
-              >
-                Potential Return
-              </p>
-              <div className="flex flex-row gap-x-2 items-center">
-                <img alt="loading"
-
-                  width="22"
-                  height="22"
-                  src={bnb}
-                  className="4k:w-[44px] 4k:h-[44px] 8k:w-[88px] 8k:h-[88px]"
-                />
-                <p className="textCoinDetail" style={{ color: "rgb(232, 54, 152)" }}>
-                  0
+                  {formatEther(poolBalance)}
                 </p>
               </div>
             </div>
