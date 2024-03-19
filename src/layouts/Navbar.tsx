@@ -35,12 +35,12 @@ const NAV_LINKS: Array<INavLink> = [
     iconName: "game-icons:heart-stake",
     to: "https://kmbtstaking.static.app/",
   },
-  {
-    id: 3,
-    label: "Telegram",
-    iconName: "basil:telegram-solid",
-    to: "https://t.me/kryptokombatcommunity",
-  },
+  // {
+  //   id: 3,
+  //   label: "Telegram",
+  //   iconName: "basil:telegram-solid",
+  //   to: "https://t.me/kryptokombatcommunity",
+  // },
   {
     id: 4,
     label: "Swap",

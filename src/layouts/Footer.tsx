@@ -15,6 +15,11 @@ export default function Footer() {
         </span>
 
         <div className="flex items-center gap-2">
+          <a href="https://twitter.com/KryptoKombat">
+            <TextIconButton>
+              <Icon icon="mdi:twitter" className="text-2xl" />
+            </TextIconButton>
+          </a>
           <a href="https://t.me/kryptokombatcommunity">
             <TextIconButton>
               <Icon icon="mdi:telegram" className="text-2xl" />

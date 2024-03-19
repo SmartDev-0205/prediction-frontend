@@ -23,7 +23,7 @@ export default function Status() {
           </span>
           <span>5m</span>
         </div>
-        <img src={clockImg} alt="logo" className="w-10 sm:w-20 -ml-5" />
+        <img src={clockImg} alt="logo" className="w-10 sm:w-20 -ml-3" />
       </div>
     </div>
   );

@@ -52,7 +52,7 @@ const Chart = () => {
     },
     yaxis: {
       labels: {
-        show: true,
+        show: false,
         align: "left" as const,
       },
       tickAmount: 30,
@@ -67,23 +67,23 @@ const Chart = () => {
         enabled: false,
       },
     },
-    legend: {
-      position: "top" as const,
-      horizontalAlign: "right" as const,
-      floating: true,
-      offsetY: -25,
-      offsetX: -5,
-    },
+    // legend: {
+    //   position: "top" as const,
+    //   horizontalAlign: "right" as const,
+    //   floating: true,
+    //   offsetY: -25,
+    //   offsetX: -5,
+    // },
     grid: {
-      borderColor: "#e7e7e7",
+      borderColor: "#182b48",
       row: {
-        colors: ["#590000", "transparent"], // takes an array which will be repeated on columns
+        colors: ["#182b48", "#182b48"], // takes an array which will be repeated on columns
         opacity: 0.4,
       },
     },
     series: [
       {
-        name: "BTC Value",
+        name: "Matic Value",
         data: btcList,
       },
     ],
