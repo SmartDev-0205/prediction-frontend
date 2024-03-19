@@ -1,6 +1,6 @@
 {
   "contract": {
-    "address": "0x85a77d74403a6cffd26d7fc395200fd86828c39c",
+    "address": "0xFce737aaBB5931F4578217f971Bf092182345a7A",
     "abi": [
       { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
       {

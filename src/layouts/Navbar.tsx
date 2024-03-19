@@ -23,18 +23,30 @@ interface INavLink {
 // -----------------------------------------------------------------------------------------
 
 const NAV_LINKS: Array<INavLink> = [
-  // {
-  //   id: 1,
-  //   label: "Staking",
-  //   iconName: "lucide:cylinder",
-  //   to: "/staking",
-  // },
-  // {
-  //   id: 2,
-  //   label: "Twitter",
-  //   iconName: "line-md:twitter",
-  //   to: "/twitter",
-  // },
+  {
+    id: 1,
+    label: "Lending",
+    iconName: "cryptocurrency:lend",
+    to: "https://kombatlending.static.app/",
+  },
+  {
+    id: 2,
+    label: "Staking",
+    iconName: "game-icons:heart-stake",
+    to: "https://kmbtstaking.static.app/",
+  },
+  {
+    id: 3,
+    label: "Telegram",
+    iconName: "basil:telegram-solid",
+    to: "https://t.me/kryptokombatcommunity",
+  },
+  {
+    id: 4,
+    label: "Swap",
+    iconName: "material-symbols-light:swap-horizontal-circle",
+    to: "https://quickswap.exchange/#/swap?swapIndex=0&currency0=ETH&currency1=0xb1069ed13d28c585EBC14136cc974EBF0cB02799",
+  },
   // {
   //   id: 3,
   //   label: "Telegram",
@@ -77,7 +89,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             {NAV_LINKS.map((linkItem) => (
-              <Link key={linkItem.id} to={linkItem.to}>
+              <Link key={linkItem.id} to={linkItem.to} target="_blank">
                 <TextButton
                   className={`flex items-center gap-2 ${
                     pathname === linkItem.to ? "text-gray-100" : "text-gray-500"

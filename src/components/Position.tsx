@@ -54,10 +54,10 @@ export default function PostionCard({
   };
 
   return (
-    <Card className="mt-6 w-96 min-h-[400px]">
+    <Card className="mt-6 w-96 min-h-[400px] bg-[#2b241f]">
       <CardBody className="p-0 flex items-center">
         <div>
-          <div className="flex justify-between bg-gray-300 p-4 rounded-t-2xl">
+          <div className="flex justify-between bg-[#2b241f] p-4 rounded-t-2xl">
             <div className="flex gap-3 items-center">
               <Icon
                 icon="tdesign:arrow-left"

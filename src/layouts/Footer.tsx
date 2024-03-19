@@ -11,16 +11,11 @@ export default function Footer() {
         </div>
 
         <span className="text-gray-200">
-          Copyrights © {new Date().getFullYear()} Piggy
+          Copyrights © {new Date().getFullYear()} Krypto Kombat
         </span>
 
         <div className="flex items-center gap-2">
-          <a href="https://discord.com/channels/1057939096527437845/1077913470479106048">
-            <TextIconButton>
-              <Icon icon="ic:baseline-discord" className="text-2xl" />
-            </TextIconButton>
-          </a>
-          <a href="https://t.me/Ridgebackinnu">
+          <a href="https://t.me/kryptokombatcommunity">
             <TextIconButton>
               <Icon icon="mdi:telegram" className="text-2xl" />
             </TextIconButton>
@@ -30,7 +25,7 @@ export default function Footer() {
 
       <Container className="flex lg:hidden flex-col my-0">
         <p className="text-gray-200 text-center">
-          Copyrights © {new Date().getFullYear()} Piggy
+          Copyrights © {new Date().getFullYear()} Krypto Kombat
         </p>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

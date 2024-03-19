@@ -23,9 +23,8 @@ export default function PredictCard({
   });
   const { timer } = useContext(SocketContext);
   const { setDirection } = useContext(SocketContext);
-  console.log("---------isDoubleBet--------", isDoubleBet);
   return (
-    <Card className="mt-6 w-96 min-h-[400px]">
+    <Card className="mt-6 w-96 min-h-[400px] bg-[#182b48]">
       <CardBody>
         <div className="flex justify-between">
           <div className="flex gap-1 items-center">
@@ -36,6 +35,7 @@ export default function PredictCard({
         </div>
         {status === "LIVE" ? (
           <Progress
+          color="blue"
             value={
               (status === STATUS.POOL_CLOSE
                 ? 100
@@ -56,10 +56,10 @@ export default function PredictCard({
             )}
           </div>
           <div className="flex justify-center absolute top-0 w-full h-full items-center flex-col">
-            <Typography variant="h5" color="white">
+            <Typography variant="h5" color="black">
               UP
             </Typography>
-            <Typography variant="h6" color="white">
+            <Typography variant="h6" color="black">
               {upPayout} payout
             </Typography>
           </div>
@@ -148,7 +148,7 @@ export default function PredictCard({
             onClick={() => {
               handlFlip();
               setDirection(2);
-            }}  
+            }}
             disabled={isDoubleBet}
           >
             Enter Down
@@ -188,10 +188,10 @@ export default function PredictCard({
             )}
           </div>
           <div className="flex justify-center absolute top-0 w-full h-full items-center flex-col">
-            <Typography variant="h6" color="white">
+            <Typography variant="h6" color="black">
               {downPayout} payout
             </Typography>
-            <Typography variant="h5" color="white">
+            <Typography variant="h5" color="black">
               Down
             </Typography>
           </div>

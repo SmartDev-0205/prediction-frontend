@@ -32,7 +32,10 @@ const useReadContract = ({ poolId = "0" }) => {
     watch: true,
   });
 
+
+
   useEffect(() => {
+    console.log(poolId, poolInfo);
     if (isSuccess && poolInfo) {
       setUpPayout(formatUnits(poolInfo[1], 3));
       setDownPayout(formatUnits(poolInfo[2], 3));
